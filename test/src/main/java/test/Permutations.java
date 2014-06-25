@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Scanner;
 
 class Permutations
 {
@@ -76,17 +77,23 @@ class Permutations
 	
 	public static void main(String[] args) throws IOException{
 		addToDictionary();
+		Scanner in = new Scanner(System.in);
+		String str=in.next();
+		String[] str1 = null;
+		int len = str.length()/5; 
+		str1=str.split("(?<=\\G..........)");
+		
 		HashSet<String> output =new HashSet<String>();
 		List<String> wordList = new ArrayList<String>();
-		String str="terminal";
-		for(int i=0;i<=str.length();i++){
-			for(int j=i;j<=str.length();j++)
+		for(String str2 : str1 ){
+		for(int i=0;i<=str2.length();i++){
+			for(int j=i;j<=str2.length();j++)
 		{
-				String element=str.substring(i,j);
+				String element=str2.substring(i,j);
 		
 		 wordList.addAll(permutation(element));
 		}
-		}	
+		}}	
 		output.addAll(checkWord(wordList));
 			
 		System.out.println("Word Count : \t"+output.size()+"\n");
